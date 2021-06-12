@@ -1,10 +1,10 @@
-import React ,{useEffect} from "react";
+import React, {useEffect} from "react";
 import{useDispatch,useSelector} from "react-redux";
 import {changedField,initializeForm} from "../../modules/auth";
 import AuthForm from "../../components/auth/AuthForm";
 
 const LoginForm=()=>{
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
     const {form} = useSelector(({auth})=>({
         form:auth.login
     }));
@@ -23,7 +23,7 @@ const LoginForm=()=>{
     };
 
     //폼 등록 이벤트 핸들러
-    const onSumbit =(e)=>{
+    const onSumbit = e =>{
         e.preventDefault();
         //구현 예정
     };
@@ -31,7 +31,7 @@ const LoginForm=()=>{
     //컴포넌트가 처음 렌더링 될때 form 을 초기화함
     useEffect(()=>{
         dispatch(initializeForm('login'));
-    },[dispatch]);
+    }, [dispatch]);
 
     return(
         <AuthForm
