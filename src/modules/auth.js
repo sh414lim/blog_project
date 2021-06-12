@@ -20,24 +20,24 @@ export const initializeForm=createAction(INITIALIZE_FORM,form=>form); //register
 
 const initialState={
     register:{
-        username:'',
-        password:'',
-        passwordConfirm:'',
+        username: '',
+        password: '',
+        passwordConfirm: '',
     },
     login:{
-        username:'',
-        password:'',
+        username: '',
+        password: '',
     },
 };
 
 const auth =handleActions(
     {
-        [CHANGE_FIELD]:(state, {payload:{form,key,value}})=>
+        [CHANGE_FIELD] : (state, {payload: { form,key,value} })=>
         produce(state,draft=>{
             draft[form][key]=value; //state.register.username를 바꾼다.
 
         }),
-        [INITIALIZE_FORM] : (state, {payload:form})=>({
+        [INITIALIZE_FORM] : (state, {payload: form})=>({
             ...state,
             [form]:initialState[form],
         }),
