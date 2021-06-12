@@ -1,16 +1,102 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../conmon/Button";
+import {Link} from "react-router-dom";
+import palette from "../../lib/palette";
 
 // 회원가입 또는 로그인 폼을 보여 준다
 
-const AuthFormBlock=styled.div``;
 
-const AuthForm=()=>{
+
+
+const AuthFormBlock=styled.div`
+h3{
+    margin: 0;
+    color:${palette.gray[8]};
+    margin-bottom: 1rem;
+    
+}
+`;
+
+// 스타일링 된 input
+const StyleInput=styled.input`
+font-size:1rem;
+border:none;
+border-bottom: 1px solid ${palette.gray[5]};
+padding-bottom: 0.5rem;
+outline: none;
+width: 100%;
+&:focus{
+color:$oc-teal-7;
+border-bottom: 1px solid ${palette.gray[7]};
+}
+& + &{
+    margin-top: 1rem;
+}
+`;
+
+
+//폼 하단에 로그인 혹은 회원가입 링크를 보여준다
+const Footer=styled.div`
+    margin-top: 2rem;
+    text-align: right;
+    a{
+        color:${palette.gray[6]};
+        text-decoration: underline;
+        &:hover{
+            color:${palette.gray[9]}
+        }
+        
+    }
+`;
+
+//상단 여백
+const ButtonWidthMarginTop=styled(Button)`
+margin-top: 1rem;
+`;
+
+const textMap={
+    login:"로그인",
+    register:"회원가입"
+}
+
+const AuthForm=({type})=>{
+    const text=textMap[type];
     return(
-        <AuthForm>
-            AuthFormBlock
-        </AuthForm>
+        <AuthFormBlock>
+            <h3>{text}</h3>
+            <form>
+                <StyleInput autoComplete="username" name="uesrname" placeholder="아이디"/>
+                <StyleInput
+                autoComplete="new-password"
+                name="password"
+                placeholder="비밀번호"
+                type="password"
+                />
+                {type === 'register' && (
+                     <StyleInput
+                     autoComplete="new-password"
+                     name="password"
+                     placeholder="비밀번호"
+                     type="password"
+                     />
+                )}
+                <ButtonWidthMarginTop cyan fullWidth>
+                 {text}
+                    </ButtonWidthMarginTop>
+            </form>
+            <Footer>
+                {type === 'login' ?(
+                      <Link to="/register">회원가입</Link>
+                ):(
+                    <Link to="/login">로그인</Link>
+                )}
+              
+            </Footer>
+        </AuthFormBlock>
     );
 };
 
-export default AuthFormBlock;
+export default AuthForm;
+
+//<Button cyan fullWidth > 는 <Button cyan={true} fullWidth={true} /> 와 같은 의미 이다.
