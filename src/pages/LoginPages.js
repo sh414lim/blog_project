@@ -1,13 +1,14 @@
 import React from "react";
-import Button from "../components/conmon/Button"
+import AuthTemplate from "../components/auth/AuthTemplate"
+import AuthForm from "../components/auth/AuthForm"
 
 
 const LoginPage =()=>{
     return(
-        <div>
-            <Button>버튼</Button>
-        </div>
-    )
+        <AuthTemplate>
+            <AuthForm/>
+        </AuthTemplate>
+        )
 }
 
 export default LoginPage;

@@ -6,12 +6,8 @@ import styled from "styled-components";
 
 const AuthTemplateBlock=styled.div``;
 
-const AuthTemplate=()=>{
-    return(
-        <AuthTemplateBlock>
-
-        </AuthTemplateBlock>
-    );
+const AuthTemplate=({children})=>{
+    return <AuthTemplateBlock>{children} </AuthTemplateBlock>
 };
 
 export default AuthTemplate;
