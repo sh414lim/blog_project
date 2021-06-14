@@ -43,3 +43,5 @@ const StyledButton=styled.button`
 const Button =props =><StyledButton {...props}/>;
 
 export default Button;
+
+//버튼 컴포넌트에 cyan r과 fullwidth 라는 props 를 넣어주면 다른 스타일이 적용된다.

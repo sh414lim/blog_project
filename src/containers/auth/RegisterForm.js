@@ -27,8 +27,7 @@ const RegisterForm=()=>{
     //폼 등록 이벤트 핸들러
     const onSumbit = e =>{
         e.preventDefault();
-        
-        const {username,password,passwordConfirm}=form;
+        const {username,password,passwordConfirm} = form;
         if(password !== passwordConfirm){
             //TODO :오류처리
             return;
@@ -56,7 +55,6 @@ const RegisterForm=()=>{
         }
     },[auth,authError]);
 
-    useEffect(()=>{})
 
     return(
         <AuthForm

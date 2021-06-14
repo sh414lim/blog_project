@@ -87,19 +87,19 @@ const AuthForm=({type,form,onChange,onSubmit})=>{
                 {type === 'register' && (
                      <StyleInput
                      autoComplete="new-password"
-                     name="password"
-                     placeholder="비밀번호"
+                     name="passwordConfirm"
+                     placeholder="비밀번호 확인"
                      type="password"
                      onChange={onChange}
                      value={form.passwordConfirm}
                      />
                 )}
-                <ButtonWidthMarginTop cyan fullWidth>
+                <ButtonWidthMarginTop cyan fullWidth styled={{marginTop:'1rem'}}>
                  {text}
                     </ButtonWidthMarginTop>
             </form>
             <Footer>
-                {type === 'login' ?(
+                {type === 'login' ? (
                       <Link to="/register">회원가입</Link>
                 ):(
                     <Link to="/login">로그인</Link>
