@@ -6,10 +6,13 @@ import WriterPages from "./pages/WriterPages";
 import PostPage from "./pages/PostPage";
 import PostListPage from "./pages/PostListPage";
 import GlobalStyle from "./components/GlobalStyled";
+import Login from "./Login";
+
 
 function App() {
   return (
     <>
+    <Login/>
     <GlobalStyle/>
       <Route path="/login" component={LoginPages}/>
       <Route path="/register" component={RegisterPage}/>

@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import{useDispatch,useSelector} from "react-redux";
 import {changedField,initializeForm} from "../../modules/auth";
 import AuthForm from "../../components/auth/AuthForm";
+import Login from "../../Login";
 
 const LoginForm=()=>{
     const dispatch = useDispatch();
@@ -34,12 +35,15 @@ const LoginForm=()=>{
     },[dispatch]);
 
     return(
+        <>
         <AuthForm
         type="login"
         form={form}
         onChange={onChange}
         onSumbit={onSumbit}
         />
+    <Login/>
+</>
     );
 };
 

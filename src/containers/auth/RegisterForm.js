@@ -25,7 +25,7 @@ const RegisterForm=()=>{
     };
 
     //폼 등록 이벤트 핸들러
-    const onSumbit = e =>{
+    const onSubmit = e =>{
         e.preventDefault();
         const {username,password,passwordConfirm} = form;
         if(password !== passwordConfirm){
@@ -61,7 +61,7 @@ const RegisterForm=()=>{
         type="register"
         form={form}
         onChange={onChange}
-        onSumbit={onSumbit}
+        onSubmit={onSubmit}
         />
     );
 };
