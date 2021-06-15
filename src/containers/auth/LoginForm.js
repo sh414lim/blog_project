@@ -1,13 +1,19 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import{useDispatch,useSelector} from "react-redux";
-import {changedField,initializeForm} from "../../modules/auth";
+import {changedField,initializeForm,login} from "../../modules/auth";
 import AuthForm from "../../components/auth/AuthForm";
 import Login from "../../Login";
+import {withRouter} from "react-router-dom";
+import {check} from "../../modules/user";
 
-const LoginForm=()=>{
+const LoginForm=({history})=>{
+    const [error,setError]=useState(null);
     const dispatch = useDispatch();
-    const {form} = useSelector(({auth})=>({
-        form:auth.login
+    const {form,auth,authError,user} = useSelector(({auth,user})=>({
+        form:auth.login,
+        auth:auth.auth,
+        authError:auth.authError,
+        user:user.user
     }));
     
     //인픗 변경 이벤트 핸들러
@@ -26,6 +32,8 @@ const LoginForm=()=>{
     //폼 등록 이벤트 핸들러
     const onSumbit =(e)=>{
         e.preventDefault();
+        const {username,password}=form;
+        dispatch(login({username,password}));
         //구현 예정
     };
 
@@ -34,6 +42,27 @@ const LoginForm=()=>{
         dispatch(initializeForm('login'));
     },[dispatch]);
 
+    useEffect(()=>{
+        if(authError){
+            console.log("오류발생");
+            console.log(authError);
+            setError("로그인 실패")
+            return;
+        }
+        if(auth){
+            console.log('로그인성공');
+            console.log(check());
+
+        }
+    }, [auth,authError,dispatch]);
+
+
+    useEffect(()=>{
+        if(user){
+            history.push('/');
+        }
+    },[history,user]);
+
     return(
         <>
         <AuthForm
@@ -41,10 +70,11 @@ const LoginForm=()=>{
         form={form}
         onChange={onChange}
         onSumbit={onSumbit}
+        error={error}
         />
     <Login/>
 </>
     );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);
