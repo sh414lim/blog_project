@@ -1,9 +1,9 @@
 import React, {useEffect,useState} from "react";
 import{useDispatch,useSelector} from "react-redux";
+import {withRouter} from "react-router-dom";
 import {changedField,initializeForm,login} from "../../modules/auth";
 import AuthForm from "../../components/auth/AuthForm";
 import Login from "../../Login";
-import {withRouter} from "react-router-dom";
 import {check} from "../../modules/user";
 
 const LoginForm=({history})=>{
@@ -40,7 +40,7 @@ const LoginForm=({history})=>{
     //컴포넌트가 처음 렌더링 될때 form 을 초기화함
     useEffect(()=>{
         dispatch(initializeForm('login'));
-    },[dispatch]);
+    }, [dispatch]);
 
     useEffect(()=>{
         if(authError){
@@ -60,6 +60,11 @@ const LoginForm=({history})=>{
     useEffect(()=>{
         if(user){
             history.push('/');
+            try{
+                localStorage.setItem('user',JSON.stringify(user));
+            }catch(e){
+                console.log('localStorage is not working')
+            }
         }
     },[history,user]);
 

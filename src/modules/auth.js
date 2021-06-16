@@ -10,9 +10,13 @@ import * as authAPI from "../lib/api/auth";
 const CHANGE_FIELD='auth/CHANGE_FIELD';
 const INITIALIZE_FORM='auth/INITIALIZE_FORM';
 
-const[REGISTER,REGISTER_SUCCESS,REGISTER_FAILURE]= createRequestActionTypes('auth/REGISTER');
+const[REGISTER,REGISTER_SUCCESS,REGISTER_FAILURE]= createRequestActionTypes(
+    'auth/REGISTER'
+    );
 
-const [LOGIN,LOGIN_SUCCESS,LOGIN_FAILURE]= createRequestActionTypes('auth/LOGIN');
+const [LOGIN,LOGIN_SUCCESS,LOGIN_FAILURE]= createRequestActionTypes(
+    'auth/LOGIN'
+    );
 
 
 export const changedField=createAction(
@@ -66,7 +70,6 @@ const auth =handleActions(
         [CHANGE_FIELD] : (state, {payload: { form,key,value} })=>
         produce(state,draft=>{
             draft[form][key]=value; //state.register.username를 바꾼다.
-
         }),
         [INITIALIZE_FORM] : (state, {payload: form})=>({
             ...state,
@@ -89,7 +92,7 @@ const auth =handleActions(
         [LOGIN_SUCCESS]:(state, {payload:auth})=>({
             ...state,
             authError:null,
-            auth,
+            auth
         }),
         //로그인 실패
         [LOGIN_FAILURE]:(state,{payload:error})=>({
