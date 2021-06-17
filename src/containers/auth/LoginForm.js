@@ -58,6 +58,8 @@ const LoginForm=({history})=>{
 
 
     useEffect(()=>{
+    console.log(user);
+    
         if(user){
             history.push('/');
             try{
@@ -65,6 +67,8 @@ const LoginForm=({history})=>{
             }catch(e){
                 console.log('localStorage is not working')
             }
+        }else{
+            console.log('else')
         }
     },[history,user]);
 
