@@ -8,11 +8,15 @@ import PostListPage from "./pages/PostListPage";
 import GlobalStyle from "./components/GlobalStyled";
 import Login from "./Login";
 import board from "./containers/Container"
+import CounterContainer from "./containers/CounterContainer"
+import Todo from "./components/ToDo"
 
 
 function App() {
   return (
     <>
+    <CounterContainer/>
+    <Todo/>
     <Login/>
     <GlobalStyle/>
       <Route path="/login" component={LoginPages}/>
