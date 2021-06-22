@@ -4,6 +4,11 @@ import 'quill/dist/quill.bubble.css';
 import styled from "styled-components";
 import Responsive from "../conmon/Responsive"
 
+//글을 작성하는 에디터 Quill 설치
+
+//제목과 내용을 입력할 수 있는 컴포넌트
+//제목은 input 내용은 Quill 에디터 사용
+
 const EditorBlock=styled(Responsive)`
 /* 페이지 위아래 여백 지정 */
 padding-top: 5rem;
