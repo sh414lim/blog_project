@@ -16,6 +16,7 @@ const[REGISTER,REGISTER_SUCCESS,REGISTER_FAILURE]= createRequestActionTypes(
 
 const [LOGIN,LOGIN_SUCCESS,LOGIN_FAILURE]= createRequestActionTypes(
     'auth/LOGIN'
+    
     );
 
 

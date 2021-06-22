@@ -15,7 +15,7 @@ import Todo from "./components/ToDo"
 function App() {
   return (
     <>
-    <CounterContainer/>
+    <CounterContainer number={0}/>
     <Todo/>
     <Login/>
     <GlobalStyle/>
