@@ -10,6 +10,7 @@ import Login from "./Login";
 import board from "./containers/Container"
 import CounterContainer from "./containers/CounterContainer"
 import Todo from "./components/ToDo"
+import Home from "./pages/Home"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Login/>
     <GlobalStyle/>
       <Route path="/login" component={LoginPages}/>
+      <Route path="/home" component={Home}/>
       <Route path="/register" component={RegisterPage}/>
       <Route path="/write" component={WriterPages}/>
       <Route path="/board" component={board}/>
